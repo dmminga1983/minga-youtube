@@ -1,0 +1,601 @@
+{
+ "version": 1,
+ "note": "26 hook formulas for Reels and Shorts, written for minga-reels. Each one: the shape, an example in Russian and English, the on-screen line, what it is good for, how it gets ruined, and match patterns for real speech in both languages. The examples are illustrations, not facts: never reuse their numbers. Edit freely and add formulas you keep seeing.",
+ "hooks": [
+  {
+   "id": "number",
+   "num": 1,
+   "name_ru": "Цифра",
+   "name_en": "The Number",
+   "shape": "Число, которого зритель не знал, сказано ровно, и сразу что из него следует.",
+   "example_ru": "Девять из десяти претензий застройщику пишут без единой ссылки на закон. Поэтому их и не читают.",
+   "example_en": "Nine out of ten claims to a developer cite no law at all. That is why nobody reads them.",
+   "on_screen": "9 ИЗ 10",
+   "good_for": "факты, которые можно проверить",
+   "ruined_by": "число без источника или круглое «с потолка»",
+   "match": {
+    "ru": [
+     "\\b\\d+\\s?(%|процент\\w*)",
+     "\\b(\\d+|[а-я]+)\\s(из|на)\\s(\\d+|десяти|ста|тысячи)\\b",
+     "\\bкаждый\\s(второй|третий|пятый|десятый)\\b"
+    ],
+    "en": [
+     "\\b\\d+(\\.\\d+)?\\s?%",
+     "\\b\\d+ (out of|in) \\d+\\b",
+     "\\bevery (second|third|fifth|tenth)\\b",
+     "\\b(one|two|three|four|five|six|seven|eight|nine|ten) (out of|in) (ten|a hundred|\\d+)\\b"
+    ]
+   }
+  },
+  {
+   "id": "cost",
+   "num": 2,
+   "name_ru": "Цена ошибки",
+   "name_en": "The Cost",
+   "shape": "Что ты потерял сам, с суммой или сроком, и одна причина.",
+   "example_ru": "Я переплатил сорок тысяч за ремонт, потому что не прочитал один пункт в договоре.",
+   "example_en": "I paid forty thousand too much for a repair because I skipped one line in the contract.",
+   "on_screen": "-40 000 ₽",
+   "good_for": "личный опыт с реальной цифрой",
+   "ruined_by": "выдуманная сумма или чужая история от первого лица",
+   "match": {
+    "ru": [
+     "\\b(я|мы)\\s(потерял\\w*|переплатил\\w*|выкинул\\w*|слил\\w*|отдал\\w*)",
+     "\\bстоил\\w*\\s(мне|нам)\\b",
+     "\\bобошл\\w*\\s(мне|нам)\\b"
+    ],
+    "en": [
+     "\\b(i|we) (lost|paid|wasted|burned|threw away)\\b",
+     "\\bcost (me|us)\\b"
+    ]
+   }
+  },
+  {
+   "id": "stop",
+   "num": 3,
+   "name_ru": "Перестань",
+   "name_en": "Stop Doing It",
+   "shape": "Прямой запрет привычного действия зрителя.",
+   "example_ru": "Хватит подписывать акт приёмки в день, когда вам дали ключи.",
+   "example_en": "Stop signing the handover act on the day you get the keys.",
+   "on_screen": "ХВАТИТ ЭТО ДЕЛАТЬ",
+   "good_for": "когда у аудитории есть вредная привычка",
+   "ruined_by": "запрет без объяснения дальше в ролике",
+   "match": {
+    "ru": [
+     "^\\s*(хватит|перестань\\w*|прекрати\\w*|не\\s(делай|делайте|покупай\\w*|подписывай\\w*|пиши\\w*|ставь\\w*))\\b",
+     "\\bникогда не\\s\\w+(й|йте)\\b"
+    ],
+    "en": [
+     "^\\s*(stop|quit|never|don't|do not)\\b"
+    ]
+   }
+  },
+  {
+   "id": "nobody",
+   "num": 4,
+   "name_ru": "Никто не скажет",
+   "name_en": "Nobody Tells You",
+   "shape": "То, о чём молчат: продавцы, специалисты, сама система.",
+   "example_ru": "Никто не говорит, что акт приёмки можно подписать с перечнем замечаний.",
+   "example_en": "Nobody tells you the handover act can be signed with a list of defects attached.",
+   "on_screen": "О ЧЁМ МОЛЧАТ",
+   "good_for": "скрытые правила, о которых молчат продавцы",
+   "ruined_by": "«секрет», который знают все",
+   "match": {
+    "ru": [
+     "\\bникто\\s(не\\s)?(говор\\w*|скаж\\w*|расскаж\\w*|предупрежда\\w*|объясня\\w*)",
+     "\\bо\\sчём\\s(молчат|не\\sговорят)\\b",
+     "\\bвам\\sне\\sскажут\\b"
+    ],
+    "en": [
+     "\\bnobody (tells|told|talks|warns)\\b",
+     "\\bno one (tells|talks|warns)\\b",
+     "\\bwhat they don't tell\\b"
+    ]
+   }
+  },
+  {
+   "id": "collapse",
+   "num": 5,
+   "name_ru": "Было и стало по времени",
+   "name_en": "Time Collapse",
+   "shape": "Долгое стало коротким, два числа рядом.",
+   "example_ru": "Претензия раньше занимала у меня три вечера. Теперь двадцать минут.",
+   "example_en": "A claim used to take me three evenings. Now it takes twenty minutes.",
+   "on_screen": "3 ВЕЧЕРА → 20 МИН",
+   "good_for": "процессы, инструменты, шаблоны",
+   "ruined_by": "разница, в которую никто не поверит",
+   "match": {
+    "ru": [
+     "\\b(раньше|было)\\b.*\\b(теперь|стало|сейчас)\\b",
+     "\\bвместо\\s\\d+\\s?\\w+\\s(за|-)?\\s?\\d+"
+    ],
+    "en": [
+     "\\bused to take\\b",
+     "\\b(from|went from) \\d+ \\w+ to \\d+\\b"
+    ]
+   }
+  },
+  {
+   "id": "their-result",
+   "num": 6,
+   "name_ru": "Чужой результат",
+   "name_en": "Someone Else's Result",
+   "shape": "Результат конкретного человека, названного по имени или роли.",
+   "example_ru": "Сосед по подъезду отсудил у застройщика полмиллиона. Вот что он сделал по-другому.",
+   "example_en": "My neighbour won half a million from the developer. Here is what he did differently.",
+   "on_screen": "ОН ОТСУДИЛ 500 000",
+   "good_for": "кейсы клиентов и знакомых с их разрешения",
+   "ruined_by": "выдуманный «знакомый»",
+   "match": {
+    "ru": [
+     "\\b(сосед\\w*|знаком\\w*|клиент\\w*|подруг\\w*|друг|коллег\\w*|мама|папа|бабушк\\w*|муж|жена)\\s\\w*\\s?(отсудил\\w*|заработал\\w*|получил\\w*|сделал\\w*|сэкономил\\w*|вернул\\w*)",
+     "\\b(сосед\\w*|знаком\\w*|клиент\\w*|подруг\\w*|друг|коллег\\w*|мама|папа|бабушк\\w*|муж|жена)(\\s+\\S+){0,3}\\s+(отсудил\\w*|заработал\\w*|получил\\w*|сэкономил\\w*|вернул\\w*|выиграл\\w*)"
+    ],
+    "en": [
+     "\\b(my )?(neighbour|neighbor|client|friend|colleague|mom|dad|wife|husband) (won|made|got|saved|built)\\b"
+    ]
+   }
+  },
+  {
+   "id": "flip",
+   "num": 7,
+   "name_ru": "Все неправы",
+   "name_en": "Contrarian Flip",
+   "shape": "Популярное мнение, и сразу почему оно неверно.",
+   "example_ru": "Все советуют сначала звонить застройщику. Это худшее, что можно сделать.",
+   "example_en": "Everyone says call the developer first. That is the worst thing you can do.",
+   "on_screen": "ВСЕ ОШИБАЮТСЯ",
+   "good_for": "когда есть мнение, с которым спорит опыт",
+   "ruined_by": "спор ради спора, без доказательства",
+   "match": {
+    "ru": [
+     "\\b(все|многие|вам)\\s(советуют|говорят|думают|считают|уверены)\\b",
+     "\\bэто\\s(не\\s?правда|миф|ошибка|ерунда)\\b"
+    ],
+    "en": [
+     "\\beveryone (says|thinks|tells)\\b",
+     "\\bthat's (wrong|a myth|not true)\\b"
+    ]
+   }
+  },
+  {
+   "id": "reveal",
+   "num": 8,
+   "name_ru": "Как на самом деле",
+   "name_en": "The Reveal",
+   "shape": "Обещание показать, как устроено на самом деле.",
+   "example_ru": "Вот как на самом деле застройщик считает, кому платить по гарантии.",
+   "example_en": "Here is how the developer actually decides whose warranty claim gets paid.",
+   "on_screen": "КАК ЭТО УСТРОЕНО",
+   "good_for": "внутренняя механика процессов",
+   "ruined_by": "раскрытие, которого в ролике нет",
+   "match": {
+    "ru": [
+     "\\b(как|что)\\sна\\sсамом\\sделе\\b",
+     "\\bвот\\s(как|почему|что)\\b",
+     "\\bоказ(ывается|алось)\\b"
+    ],
+    "en": [
+     "\\b(how|what) (it|they) actually\\b",
+     "\\bhere's (how|why|what)\\b",
+     "\\bturns out\\b",
+     "\\bhere is (how|why|what)\\b",
+     "\\b(how|what|who|whose)\\b.*\\bactually\\b"
+    ]
+   }
+  },
+  {
+   "id": "tried",
+   "num": 9,
+   "name_ru": "Я проверил",
+   "name_en": "I Tried It",
+   "shape": "Ты сам сделал эксперимент со сроком и честным итогом.",
+   "example_ru": "Я тридцать дней писал все письма застройщику через нейросеть. Итог меня удивил.",
+   "example_en": "I wrote every letter to the developer with AI for thirty days. The result surprised me.",
+   "on_screen": "30 ДНЕЙ ЭКСПЕРИМЕНТА",
+   "good_for": "эксперименты, тесты, сравнения",
+   "ruined_by": "эксперимент, которого не было",
+   "match": {
+    "ru": [
+     "\\b(я|мы)\\s(\\d+|[а-я]+)\\s(дн\\w*|недел\\w*|месяц\\w*|раз)\\b",
+     "\\b(я|мы)\\s(попробовал\\w*|проверил\\w*|протестировал\\w*)\\b"
+    ],
+    "en": [
+     "\\bi (tried|tested) \\w+",
+     "\\bfor \\d+ days\\b",
+     "\\bfor (\\d+|[a-z]+) (days|weeks|months)\\b"
+    ]
+   }
+  },
+  {
+   "id": "before-after",
+   "num": 10,
+   "name_ru": "До и после",
+   "name_en": "Before and After",
+   "shape": "Два состояния рядом, разница видна сразу.",
+   "example_ru": "Слева стена до экспертизы, справа после. Разница стоила застройщику двести тысяч.",
+   "example_en": "Left is the wall before the inspection, right is after. The difference cost the developer two hundred thousand.",
+   "on_screen": "ДО / ПОСЛЕ",
+   "good_for": "визуальные изменения",
+   "ruined_by": "разница, которую не видно в кадре",
+   "match": {
+    "ru": [
+     "\\bдо\\sи\\sпосле\\b",
+     "\\bслева\\b.*\\bсправа\\b",
+     "\\bбыло\\b.*\\bстало\\b"
+    ],
+    "en": [
+     "\\bbefore and after\\b",
+     "\\bleft is\\b.*\\bright is\\b"
+    ]
+   }
+  },
+  {
+   "id": "teardown",
+   "num": 11,
+   "name_ru": "Разбор",
+   "name_en": "The Teardown",
+   "shape": "Разбираешь чужую вещь и показываешь, где она ломается.",
+   "example_ru": "Разберу экспертизу, которую застройщик проиграл из-за одной фотографии.",
+   "example_en": "Let me take apart the expert report the developer lost over one photo.",
+   "on_screen": "РАЗБОР",
+   "good_for": "экспертность, ошибки в документах и продуктах",
+   "ruined_by": "разбор, который унижает автора",
+   "match": {
+    "ru": [
+     "\\b(разбер\\w*|разбираю|разбор)\\b",
+     "\\bпокажу,?\\sгде\\b"
+    ],
+    "en": [
+     "\\b(let me )?(break down|tear down|take apart)\\b",
+     "\\bteardown\\b"
+    ]
+   }
+  },
+  {
+   "id": "steal",
+   "num": 12,
+   "name_ru": "Забирай",
+   "name_en": "Take This",
+   "shape": "Готовая вещь, которую можно забрать прямо сейчас.",
+   "example_ru": "Забирайте шаблон претензии, по которому застройщик ответил за неделю.",
+   "example_en": "Take the claim template the developer answered within a week.",
+   "on_screen": "ЗАБИРАЙ ШАБЛОН",
+   "good_for": "шаблоны, чек-листы, формулировки",
+   "ruined_by": "обещанный файл, который не отдают без условий",
+   "match": {
+    "ru": [
+     "^\\s*(забирай\\w*|сохраняй\\w*|держи\\w*|лови)\\b",
+     "\\bшаблон\\w*,?\\s(по\\sкотор|который)"
+    ],
+    "en": [
+     "^\\s*(steal|take|grab|save) (this|my|the)\\b"
+    ]
+   }
+  },
+  {
+   "id": "warning",
+   "num": 13,
+   "name_ru": "Предупреждение",
+   "name_en": "The Warning",
+   "shape": "Если ты в такой ситуации, не делай вот это.",
+   "example_ru": "Если вам пришёл ответ от застройщика с отказом, не отвечайте на него неделю.",
+   "example_en": "If the developer just turned you down, do not reply for a week.",
+   "on_screen": "НЕ ОТВЕЧАЙТЕ",
+   "good_for": "частые ошибки в конкретной ситуации",
+   "ruined_by": "страшилка без выхода",
+   "match": {
+    "ru": [
+     "^\\s*если\\s(вы|ты|вам|тебе)\\b.*\\bне\\s\\w+",
+     "\\bосторожно\\b",
+     "\\bвнимание\\b"
+    ],
+    "en": [
+     "^\\s*if you\\b.*\\b(don't|do not|never)\\b",
+     "\\bwarning\\b",
+     "^\\s*if (you|the)\\b.*\\b(don't|do not|never)\\b"
+    ]
+   }
+  },
+  {
+   "id": "list",
+   "num": 14,
+   "name_ru": "Нумерованный список",
+   "name_en": "The Numbered List",
+   "shape": "Сколько пунктов, и что их объединяет.",
+   "example_ru": "Три фразы, после которых застройщик перестаёт тянуть время.",
+   "example_en": "Three sentences that make a developer stop stalling.",
+   "on_screen": "3 ФРАЗЫ",
+   "good_for": "карусели и короткие перечни",
+   "ruined_by": "список без связи между пунктами",
+   "match": {
+    "ru": [
+     "^\\s*(\\d+|два|две|три|четыре|пять|шесть|семь)\\s\\w+,?\\s(котор|чтобы|после|без|которые|от)",
+     "^\\s*(\\d+|три|пять)\\s(ошиб\\w*|причин\\w*|способ\\w*|шаг\\w*|правил\\w*|фраз\\w*)"
+    ],
+    "en": [
+     "^\\s*\\d+ (ways|mistakes|reasons|steps|rules|things|sentences|signs)\\b",
+     "^\\s*(three|five|seven) (ways|mistakes|reasons|steps|rules)\\b",
+     "^\\s*(\\d+|two|three|four|five|six|seven) \\w+ (that|to|you|which|for)\\b"
+    ]
+   }
+  },
+  {
+   "id": "receipt",
+   "num": 15,
+   "name_ru": "Вот доказательство",
+   "name_en": "The Receipt",
+   "shape": "Показываешь документ, скрин или цифру, которая доказывает слова.",
+   "example_ru": "Вот письмо, где застройщик сам признаёт дефект. Смотрите на третий абзац.",
+   "example_en": "Here is the letter where the developer admits the defect. Look at paragraph three.",
+   "on_screen": "ВОТ ПИСЬМО",
+   "good_for": "когда есть настоящий документ",
+   "ruined_by": "документ, который нельзя показывать",
+   "match": {
+    "ru": [
+     "^\\s*вот\\s(письмо|скрин\\w*|документ|акт|чек|договор|ответ|выписка)\\b",
+     "\\bсмотрите\\sна\\b"
+    ],
+    "en": [
+     "^\\s*here's the (letter|screenshot|receipt|email|contract)\\b",
+     "\\blook at\\b"
+    ]
+   }
+  },
+  {
+   "id": "comment",
+   "num": 16,
+   "name_ru": "Ответ на комментарий",
+   "name_en": "Answering a Comment",
+   "shape": "Читаешь вопрос зрителя и отвечаешь на него роликом.",
+   "example_ru": "Мне написали: а если застройщик не отвечает на претензию? Отвечаю.",
+   "example_en": "Someone asked: what if the developer ignores the claim? Here is the answer.",
+   "on_screen": "ВАШ ВОПРОС",
+   "good_for": "вопросы, которые задают многие",
+   "ruined_by": "выдуманный вопрос",
+   "match": {
+    "ru": [
+     "\\b(мне\\s)?(написал\\w*|спросил\\w*|спрашива\\w*)\\b.*\\?",
+     "\\bв\\sкомментари\\w*\\b",
+     "\\bотвечаю\\b"
+    ],
+    "en": [
+     "\\b(someone|you) (asked|wrote)\\b",
+     "\\bin the comments\\b",
+     "\\breplying to\\b"
+    ]
+   }
+  },
+  {
+   "id": "insider",
+   "num": 17,
+   "name_ru": "Изнутри",
+   "name_en": "The Insider",
+   "shape": "Говоришь как человек изнутри профессии, со стажем или ролью.",
+   "example_ru": "Я шестнадцать лет работаю с гарантийными претензиями. Вот что решает исход.",
+   "example_en": "I have handled warranty claims for sixteen years. Here is what decides them.",
+   "on_screen": "16 ЛЕТ ИЗНУТРИ",
+   "good_for": "экспертный канал с реальным опытом",
+   "ruined_by": "стаж, которого нет",
+   "match": {
+    "ru": [
+     "\\b(я|мы)\\s(\\d+|[а-я]+)\\s(лет|год\\w*)\\s(работаю|занимаюсь|в\\s\\w+)",
+     "\\bкак\\s(юрист|эксперт|инженер|врач|прораб|риелтор|застройщик)\\b"
+    ],
+    "en": [
+     "\\bi('ve| have)? (worked|been) \\w* ?(for )?\\d+ years\\b",
+     "\\bas an? (lawyer|engineer|doctor|expert|insider)\\b",
+     "\\bi('ve| have)? (handled|worked|built|run|been|done|fixed)\\b.*\\bfor (\\d+|[a-z]+) years\\b"
+    ]
+   }
+  },
+  {
+   "id": "impossible",
+   "num": 18,
+   "name_ru": "Можно без",
+   "name_en": "The Impossible Claim",
+   "shape": "Результат без того, что считают обязательным.",
+   "example_ru": "Можно получить компенсацию от застройщика без суда. Если сделать одну вещь заранее.",
+   "example_en": "You can get compensation from a developer without going to court, if you do one thing first.",
+   "on_screen": "БЕЗ СУДА",
+   "good_for": "снятие ложного ограничения",
+   "ruined_by": "обещание, которое ролик не выполняет",
+   "match": {
+    "ru": [
+     "\\b(можно|реально)\\s\\w+.*\\bбез\\s\\w+",
+     "\\bдаже\\sесли\\sне\\b"
+    ],
+    "en": [
+     "\\byou can \\w+ .*\\bwithout\\b",
+     "\\beven if you (don't|can't)\\b"
+    ]
+   }
+  },
+  {
+   "id": "versus",
+   "num": 19,
+   "name_ru": "Сравнение",
+   "name_en": "Versus",
+   "shape": "Два варианта лоб в лоб, и какой ты выбрал.",
+   "example_ru": "Юрист за пятьдесят тысяч против шаблона за ноль. Я проверил оба.",
+   "example_en": "A fifty-thousand lawyer against a free template. I tried both.",
+   "on_screen": "ЮРИСТ VS ШАБЛОН",
+   "good_for": "выбор, который мучает аудиторию",
+   "ruined_by": "сравнение без вывода",
+   "match": {
+    "ru": [
+     "\\bпротив\\b",
+     "\\bvs\\.?\\b",
+     "\\bили\\b.*\\?\\s*$",
+     "\\bчто\\s(лучше|выгоднее|выбрать)\\b"
+    ],
+    "en": [
+     "\\bvs\\.?\\b",
+     "\\bversus\\b",
+     "\\bwhich is better\\b",
+     "\\bagainst\\b"
+    ]
+   }
+  },
+  {
+   "id": "origin",
+   "num": 20,
+   "name_ru": "С чего началось",
+   "name_en": "The Origin",
+   "shape": "Момент, с которого всё началось, со сценой.",
+   "example_ru": "Всё началось с трещины над дверью, которую я заметил в первую же ночь.",
+   "example_en": "It started with a crack above the door I noticed on the first night.",
+   "on_screen": "С ЭТОГО НАЧАЛОСЬ",
+   "good_for": "истории, личные каналы",
+   "ruined_by": "долгая предыстория до сути",
+   "match": {
+    "ru": [
+     "^\\s*(всё|все)\\sначалось\\b",
+     "^\\s*(однажды|в\\sтот\\sдень|когда\\sя\\sвпервые)\\b"
+    ],
+    "en": [
+     "^\\s*it (all )?started\\b",
+     "^\\s*(one day|the day i)\\b"
+    ]
+   }
+  },
+  {
+   "id": "mid",
+   "num": 21,
+   "name_ru": "С середины",
+   "name_en": "Mid-Sentence",
+   "shape": "Ролик начинается с середины сцены, без вступления.",
+   "example_ru": "...и тут прораб говорит: это не трещина, это так задумано.",
+   "example_en": "...and then the foreman says: that is not a crack, it is a design feature.",
+   "on_screen": "«ТАК ЗАДУМАНО»",
+   "good_for": "истории и диалоги",
+   "ruined_by": "середина, которая без контекста непонятна",
+   "match": {
+    "ru": [
+     "^\\s*(\\.\\.\\.|…)",
+     "^\\s*(и\\sтут|и\\sтогда|а\\sпотом)\\b"
+    ],
+    "en": [
+     "^\\s*(\\.\\.\\.|…)",
+     "^\\s*(and then|so then)\\b"
+    ]
+   }
+  },
+  {
+   "id": "deadline",
+   "num": 22,
+   "name_ru": "Срок",
+   "name_en": "The Deadline",
+   "shape": "Срок, после которого будет поздно.",
+   "example_ru": "На ответ по этому письму у вас десять дней. Пропустите срок, и спорить будет сложнее.",
+   "example_en": "You have ten days to answer this letter. Miss it and the argument gets much harder.",
+   "on_screen": "10 ДНЕЙ",
+   "good_for": "сроки, законы, сезонность",
+   "ruined_by": "срок, который нельзя проверить",
+   "match": {
+    "ru": [
+     "\\b(до|осталось|успей\\w*|пока\\sне)\\s\\w*",
+     "\\bпотом\\s(будет\\s)?поздно\\b",
+     "\\bсрок\\w*\\b"
+    ],
+    "en": [
+     "\\b(until|before|deadline|too late|days left)\\b",
+     "\\byou have (\\d+|[a-z]+) (days|hours|weeks)\\b",
+     "\\bmiss (it|the deadline)\\b"
+    ]
+   }
+  },
+  {
+   "id": "you",
+   "num": 23,
+   "name_ru": "Это про тебя",
+   "name_en": "Direct Address",
+   "shape": "Точное описание зрителя, чтобы он узнал себя.",
+   "example_ru": "Если вы получили ключи этой осенью и ещё не проверили окна, это видео для вас.",
+   "example_en": "If you got your keys this autumn and have not checked the windows yet, this is for you.",
+   "on_screen": "ВЫ ПОЛУЧИЛИ КЛЮЧИ?",
+   "good_for": "узкая аудитория",
+   "ruined_by": "описание, под которое подходит каждый",
+   "match": {
+    "ru": [
+     "\\bэто\\s(видео|ролик)\\s(для\\s(вас|тебя)|про\\s(вас|тебя))\\b",
+     "^\\s*(если\\s(вы|ты)|ты|вы)\\s\\w+.*(для\\s(вас|тебя))"
+    ],
+    "en": [
+     "\\bthis (video )?is for you\\b",
+     "^\\s*if you('re| are)\\b"
+    ]
+   }
+  },
+  {
+   "id": "myth",
+   "num": 24,
+   "name_ru": "Миф",
+   "name_en": "The Myth",
+   "shape": "Называешь распространённый миф и тут же его ломаешь.",
+   "example_ru": "Миф: если подписал акт, претензий уже не предъявить.",
+   "example_en": "Myth: once you sign the handover act, you can no longer complain.",
+   "on_screen": "МИФ",
+   "good_for": "частые заблуждения в нише",
+   "ruined_by": "миф, в который никто не верит",
+   "match": {
+    "ru": [
+     "^\\s*миф\\b",
+     "\\bэто\\sмиф\\b",
+     "\\bмногие\\sдумают\\b"
+    ],
+    "en": [
+     "^\\s*myth\\b",
+     "\\bit's a myth\\b",
+     "\\bmost people think\\b"
+    ]
+   }
+  },
+  {
+   "id": "guess",
+   "num": 25,
+   "name_ru": "Угадай",
+   "name_en": "The Guess",
+   "shape": "Вопрос, на который зритель захочет ответить раньше, чем ты скажешь.",
+   "example_ru": "Угадайте, сколько застройщик заплатил за одну неработающую розетку.",
+   "example_en": "Guess how much the developer paid for one dead socket.",
+   "on_screen": "УГАДАЙТЕ СУММУ",
+   "good_for": "неожиданные цифры",
+   "ruined_by": "ответ, который легко угадать",
+   "match": {
+    "ru": [
+     "^\\s*угада\\w*\\b",
+     "\\bкак\\s(думаете|думаешь)\\b",
+     "\\bсколько,?\\sпо-вашему\\b"
+    ],
+    "en": [
+     "^\\s*guess\\b",
+     "\\bwhat do you think\\b",
+     "\\bhow much do you think\\b"
+    ]
+   }
+  },
+  {
+   "id": "expectation",
+   "num": 26,
+   "name_ru": "Ожидание и реальность",
+   "name_en": "Expectation vs Reality",
+   "shape": "Что обещали и что получили, рядом.",
+   "example_ru": "В рекламе дома были панорамные окна. В реальности окно выходит на трансформаторную будку.",
+   "example_en": "The ad promised panoramic windows. In reality the window faces a transformer box.",
+   "on_screen": "ОЖИДАНИЕ / РЕАЛЬНОСТЬ",
+   "good_for": "разрыв между обещанием и фактом",
+   "ruined_by": "реальность хуже только в шутку",
+   "match": {
+    "ru": [
+     "\\b(ожидание|обещали|в\\sрекламе)\\b.*\\b(реальность|получили|на\\sделе|в\\sреальности)\\b"
+    ],
+    "en": [
+     "\\b(expectation|they promised|the ad)\\b.*\\b(reality|we got|in reality)\\b"
+    ]
+   }
+  }
+ ]
+}

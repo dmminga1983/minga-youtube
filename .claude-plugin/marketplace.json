@@ -1,0 +1,19 @@
+{
+  "name": "minga-youtube",
+  "owner": {
+    "name": "dmminga1983",
+    "url": "https://github.com/dmminga1983"
+  },
+  "metadata": {
+    "description": "minga-youtube: long-form YouTube skills for Claude Code."
+  },
+  "plugins": [
+    {
+      "name": "minga-youtube",
+      "source": "./",
+      "description": "Scripts, packaging, edit lists, chapters, retention, SEO, comments, plans, research and audits for long-form YouTube, in Russian and English.",
+      "category": "productivity",
+      "tags": ["youtube", "video", "content"]
+    }
+  ]
+}

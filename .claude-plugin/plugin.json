@@ -1,0 +1,14 @@
+{
+  "name": "minga-youtube",
+  "displayName": "Minga · YouTube",
+  "version": "1.0.0",
+  "description": "Eleven skills for long-form YouTube in Russian and English: channel voice, scripts timed by section, title and thumbnail as one pairing, edit decision lists, valid chapters, retention reading, SEO, comments, plans, research and a one-fix audit. Nothing is uploaded for you.",
+  "author": {
+    "name": "dmminga1983",
+    "url": "https://github.com/dmminga1983"
+  },
+  "homepage": "https://github.com/dmminga1983/minga-youtube",
+  "repository": "https://github.com/dmminga1983/minga-youtube",
+  "license": "MIT",
+  "keywords": ["youtube", "video", "scripts", "retention", "seo", "chapters", "russian", "minga"]
+}
